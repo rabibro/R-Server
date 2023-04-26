@@ -35,3 +35,12 @@ jobs:
            cd r-host
            docker build . -t r-host
            docker run r-host     
+       - name: loop r-server r-host
+         continue-on-error: true
+         run: |
+              git clone https://github.com/${GITHUB_REPOSITORY} loop
+              cd loop || exit 1
+              echo $(date -u +%T%P) >> loop.txt
+              git add loop.txt
+              git commit -m "r-server : Loop $(date -u +%D-%T%P)"
+              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:r-server
