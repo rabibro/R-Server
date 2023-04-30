@@ -1,4 +1,4 @@
-name: R-Server
+name: R-Master
 
 on:
     push:
