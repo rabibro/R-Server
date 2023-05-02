@@ -1,4 +1,4 @@
-name: R-Main
+name: R-Service
 
 on:
     push:
