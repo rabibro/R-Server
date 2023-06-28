@@ -29,7 +29,6 @@ jobs:
          run: |
            git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} r-host
        - name: running r-server server
-         timeout-minutes: 250
          continue-on-error: true
          run: |
            cd r-host
